@@ -1,3 +1,5 @@
+![Checks](https://github.com/Matylda7/notes-app-example/actions/workflows/checks.yml/badge.svg)
+
 # Notes app
 
 ## Running it with Docker
