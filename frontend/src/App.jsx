@@ -32,6 +32,12 @@ function App() {
     });
   }
 
+  function remove(id) {
+    fetch(`/api/notes/${id}`, { method: "DELETE" }).then(() => {
+      load();
+    });
+  }
+
   return (
     <div>
       <h1>Notes</h1>
@@ -52,6 +58,9 @@ function App() {
           <li key={note.id}>
             {note.text}
             {note.url && <a href={note.url}> (attachment)</a>}
+            <button type="button" onClick={() => remove(note.id)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>

@@ -53,6 +53,16 @@ app.post("/api/notes", upload.single("file"), (req, res) => {
   res.status(201).json(note);
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  const index = notes.findIndex((note) => note.id === Number(req.params.id));
+
+  if (index !== -1) {
+    notes.splice(index, 1);
+  }
+
+  res.status(204).end();
+});
+
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
   console.log(
